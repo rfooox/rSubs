@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# __author__ = 'ihciah'
+# __author__ = 'rfooox'
 # cid_hash_file function from https://github.com/binux/lixian.xunlei/blob/master/libs/tools.py
 # Original Gist: https://gist.github.com/ihciah/30eda05ca36ee9f9f190067538b0ae04
 # Github Repo: https://github.com/ihciah/subtitle
@@ -46,7 +46,7 @@ class SubtitleDownloader:
             return
 
         # 打开字幕文件
-        srt_file = os.path.join(video_base_path, video_name + u'.%d.' % num + subtitle_type)
+        srt_file = os.path.join(video_base_path, video_name + u'.zh.%d.' % num + subtitle_type)
         # 字幕已存在 返回
         if os.path.isfile(srt_file):
             return
@@ -55,7 +55,7 @@ class SubtitleDownloader:
 
         if response.status == 200:
             # 下载成功将内容写入字幕文件
-            with open(os.path.join(video_base_path, video_name + u'.%d.' % num + subtitle_type), 'wb') as f:
+            with open(os.path.join(video_base_path, video_name + u'.zh.%d.' % num + subtitle_type), 'wb') as f:
                 f.write(response.data)
 
     @staticmethod

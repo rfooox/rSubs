@@ -23,7 +23,7 @@ setup(
     package_data={'': ['LICENSES']},
     include_package_data=True,
     zip_safe=False,
-    install_requires=['requests>=2.17', 'urllib3>=1.23'],
+    install_requires=['requests>=2.17', 'urllib3>=1.23', 'inotify>=0.2.10'],
     entry_points={
         'console_scripts': [
             'sub = rSubs.main:main',
