@@ -3,22 +3,22 @@ import os
 import codecs
 from setuptools import setup, find_packages
 from setuptools.command.install import install
-from subtitle.config import __version__, __author__, __email__
+from rSubs.config import __version__, __author__, __email__
 
 
 ROOT = os.path.abspath(os.path.dirname(__file__))
 
 setup(
-    name='subtitle',
+    name='rSubs',
     version=__version__,
     author=__author__,
     author_email=__email__,
-    keywords='subtitle, downloader',
+    keywords='rSubs, subtitles, downloader',
     description='A cli tool to download subtitles.',
     long_description='# A cli tool to download subtitles.\n'
                      'Usage: `sub movie.mkv`, `sub movie_dir`.\n'
                      'Run `sub -h` to see all usages.',
-    url='https://github.com/ihciah/subtitle',
+    url='https://github.com/rfooox/rSubs',
     packages=find_packages(),
     package_data={'': ['LICENSES']},
     include_package_data=True,
@@ -26,8 +26,8 @@ setup(
     install_requires=['requests>=2.17', 'urllib3>=1.23'],
     entry_points={
         'console_scripts': [
-            'sub = subtitle.main:main',
-            'subtitle = subtitle.main:main'
+            'sub = rSubs.main:main',
+            'rSubs = rSubs.main:main'
         ]
     },
     license='MIT License',

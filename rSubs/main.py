@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
-# __author__ = 'ihciah'
 import argparse
 import os
 import logging
-from subtitle.subtitle_downloader import SubtitleDownloader
+from rSubs.subtitle_downloader import SubtitleDownloader
 
 
 def main():
@@ -20,13 +19,18 @@ def main():
                         help=u'path of directory or video file you need to download subtitles for')
 
     params = parser.parse_args()
+
+    # 判断是否为监测文件夹变动
     if params.loop:
         if os.path.isdir(params.dest):
             logging.info(u"Running...")
+            # 监测文件夹 执行loop
             SubtitleDownloader.inotify_loop(params.dest)
         else:
+            # 不是文件夹 退出监测
             logging.error(u"The given path is invalid.")
     else:
+        # 执行 下载任务（参数为文件夹或者文件）
         SubtitleDownloader.download_subtitle(params.dest)
     logging.info(u"Bye :)")
 
